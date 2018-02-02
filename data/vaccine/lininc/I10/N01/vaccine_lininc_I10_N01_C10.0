@@ -1,0 +1,5 @@
+# Linearly increasing dosage, one antigen
+0: E1, 1.0
+10: E1, 2.0
+20: E1, 3.0
+30: E1, 4.0

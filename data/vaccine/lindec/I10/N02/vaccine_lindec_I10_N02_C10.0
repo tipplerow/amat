@@ -1,0 +1,5 @@
+# Linearly decreasing dosage, two antigens
+0:  E1, E2; 2.0
+10: E1, E2; 1.5
+20: E1, E2; 1.0
+30: E1, E2; 0.5

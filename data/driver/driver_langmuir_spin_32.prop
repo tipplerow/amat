@@ -1,0 +1,57 @@
+# ----------------------------------------------------------------------
+# Standard driver configuration for 32-element SPIN structures and
+# LANGMUIR-model antigen encounters.
+#
+# The following properties must be specified on the command line or in
+# other configuration files:
+#
+# amat.Epitope.configFile
+# amat.Vaccine.configFile
+# amat.AmatDriver.reportDir
+# ----------------------------------------------------------------------
+
+jam.math.JamRandom.seed = 20161130
+
+amat.Antigen.configFile = AUTO
+
+amat.Receptor.structureType = MATCH
+amat.Receptor.length        = MATCH
+
+amat.Mutator.lethalProbability  = 0.01
+amat.Mutator.somaticProbability = 0.05
+
+amat.AffinityModel.modelType = QUADRATIC
+amat.AffinityModel.preFactor = 8.0
+amat.AffinityModel.actEnergy = 0.0
+
+amat.GermlineActivationModel.germlineCount     = 30
+amat.GermlineActivationModel.replicationFactor = 50
+amat.GermlineActivationModel.affinityThreshold = 0.0
+
+amat.ReentryModel.selectionProbability = 0.0
+
+amat.AntigenSearchModel.modelType = LANGMUIR
+
+amat.BCRSignalingModel.modelType         = AFFINITY_THRESHOLD
+amat.BCRSignalingModel.affinityThreshold = "amat.GermlineActivationModel.affinityThreshold"
+
+amat.MemorySelectionModel.selectionProbability = 0.05
+
+amat.PlasmaSelectionModel.affinityThreshold    = 2.0
+amat.PlasmaSelectionModel.selectionProbability = 0.05
+
+amat.TCellCompetitionModel.modelType    = AFFINITY_RANK
+amat.TCellCompetitionModel.survivalRate = 0.7
+
+amat.GerminalCenter.residentCapacity  = 4000
+amat.GerminalCenter.cycleLimit        = 100
+amat.GerminalCenter.antigenDecayRate  = 0.01
+
+amat.AmatDriver.plasmaTarget = 100000
+amat.AmatDriver.trialLimit   = 100000
+
+amat.MatchingReport.detail  = true
+amat.MatchingReport.summary = true
+
+amat.ProdRateReport.run = true
+amat.PropertyReport.run = true

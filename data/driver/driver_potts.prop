@@ -1,0 +1,44 @@
+# ----------------------------------------------------------------------
+# Replace relative file names with absolute paths appropiate for for
+# your installation...
+# ----------------------------------------------------------------------
+
+amat.AmatDriver.reportDir = test
+
+amat.Epitope.configFile = data/epitope/POTTS/Q8/epitope_POTTS_Q8_C04_V12_M12
+amat.Vaccine.configFile = data/vaccine/many-one/many-one_example
+#amat.Vaccine.configFile = data/vaccine/one-many/one-many_example
+
+amat.GerminalCenter.antigenHalfLife = 50
+
+amat.BCRSignalingModel.modelType = QUANTITY_THRESHOLD
+amat.BCRSignalingModel.quantityThreshold = 5
+
+amat.DZDivisionModel.maxCount = 4
+
+amat.TCellCompetitionModel.modelType = ANTIGEN_QTY_MEAN_RATIO
+
+amat.AffinityModel.modelType = HAMMING
+amat.HammingAffinity.matchGain = 2.0
+
+amat.NeutralizationPanel.panelType = UNIFORM_DISCRETE
+amat.NeutralizationPanel.affinityThreshold = 6.0
+
+amat.AmatDriver.plasmaTarget = 100000
+amat.AmatDriver.trialLimit   = 10000
+
+amat.GermDistReport.detail  = false
+amat.GermDistReport.summary = true
+
+amat.MatchingReport.detail    = false
+amat.MatchingReport.summary   = true
+amat.MatchingReport.threshold = 0.74
+
+amat.MutFreqReport.run  = true
+amat.ProdRateReport.run = true
+amat.PropertyReport.run = true
+
+amat.FounderDetailReport.run = false
+amat.PlasmaDetailReport.run  = false
+
+jam.math.JamRandom.seed = 20161130

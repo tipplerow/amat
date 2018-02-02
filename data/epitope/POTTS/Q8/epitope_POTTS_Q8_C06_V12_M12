@@ -1,0 +1,14 @@
+# ----------------------------------------------------------------------
+# Conserved length:     6
+# Variable length:     12
+# Mutational distance: 12
+# ----------------------------------------------------------------------
+E1: PottsStructure(8; AAAAAA AAAAAA AAAAAA) 
+E2: PottsStructure(8; AAAAAA BBBBBB BBBBBB)
+E3: PottsStructure(8; AAAAAA CCCCCC CCCCCC)
+E4: PottsStructure(8; AAAAAA DDDDDD DDDDDD)
+E5: PottsStructure(8; AAAAAA EEEEEE EEEEEE)
+E6: PottsStructure(8; AAAAAA FFFFFF FFFFFF)
+E7: PottsStructure(8; AAAAAA GGGGGG GGGGGG)
+E8: PottsStructure(8; AAAAAA HHHHHH HHHHHH)
+

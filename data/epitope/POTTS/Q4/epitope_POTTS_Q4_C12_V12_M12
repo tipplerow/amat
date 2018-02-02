@@ -1,0 +1,10 @@
+# ----------------------------------------------------------------------
+# Conserved length:    12
+# Variable length:     12
+# Mutational distance: 12
+# ----------------------------------------------------------------------
+E1: PottsStructure(4; AAAA AAAA AAAA AAAA AAAA AAAA)
+E2: PottsStructure(4; AAAA AAAA AAAA BBBB BBBB BBBB)
+E3: PottsStructure(4; AAAA AAAA AAAA CCCC CCCC CCCC)
+E4: PottsStructure(4; AAAA AAAA AAAA DDDD DDDD DDDD)
+

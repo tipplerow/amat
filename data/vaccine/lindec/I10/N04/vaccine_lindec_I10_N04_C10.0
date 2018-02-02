@@ -1,0 +1,5 @@
+# Linearly decreasing dosage, four antigens
+0:  E1, E2, E3, E4; 1.00
+10: E1, E2, E3, E4; 0.75
+20: E1, E2, E3, E4; 0.50
+30: E1, E2, E3, E4; 0.25

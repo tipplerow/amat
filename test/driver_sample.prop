@@ -1,0 +1,56 @@
+jam.math.JamRandom.seed = 20161130
+
+amat.Epitope.configFile = data/epitope/SPIN/epitope_SPIN_C12_V36_M18
+amat.Vaccine.configFile = data/vaccine/bolus/N04/vaccine_bolus_N04_C0.2
+
+amat.AffinityModel.modelType = HAMMING
+
+amat.EpitopeCaptureModel.modelType = LANGMUIR
+
+amat.GermlineActivationModel.germlineCount     = 30
+amat.GermlineActivationModel.replicationFactor = 50
+amat.GermlineActivationModel.affinityThreshold = 0.0
+
+amat.ReentryModel.selectionProbability = 0.01
+
+amat.OccupationModel.modelType = LANGMUIR
+
+amat.VisitationModel.modelType  = FIXED_COUNT
+amat.VisitationModel.fixedCount = 20
+
+amat.BCRSignalingModel.modelType         = AFFINITY_THRESHOLD
+amat.BCRSignalingModel.affinityThreshold = "amat.GermlineActivationModel.affinityThreshold"
+
+amat.MemorySelectionModel.selectionProbability = 0.05
+
+amat.PlasmaSelectionModel.affinityThreshold    = 0.0
+amat.PlasmaSelectionModel.selectionProbability = 0.05
+
+amat.TCellCompetitionModel.modelType    = MAX_AFFINITY_RANK
+amat.TCellCompetitionModel.survivalRate = 0.80
+
+amat.GerminalCenter.residentCapacity = 1500
+amat.GerminalCenter.cycleLimit       = 100
+amat.GerminalCenter.antigenHalfLife  = 999
+
+amat.AmatDriver.plasmaTarget = 50000
+amat.AmatDriver.trialLimit   = 5000
+
+amat.ClonalDiversityReport.detail  = true
+amat.ClonalDiversityReport.summary = true
+
+amat.GermDistReport.detail  = true
+amat.GermDistReport.summary = true
+
+amat.HeadlineReport.caseHeader = antigenCount,concentration
+amat.HeadlineReport.caseData   = 1,2.0
+
+amat.MatchingReport.detail  = true
+amat.MatchingReport.summary = true
+amat.MatchingReport.threshold = 0.9
+
+amat.MutFreqReport.run  = true
+amat.ProdRateReport.run = true
+amat.PropertyReport.run = true
+
+amat.VisitationReport.runDetail = true
