@@ -6,6 +6,7 @@ import java.io.PrintWriter;
 import jam.app.JamProperties;
 import jam.io.IOUtil;
 import jam.math.DoubleUtil;
+import jam.math.StatSummary;
 
 import amat.driver.AmatDriver;
 import amat.germinal.GerminalCenter;
@@ -16,7 +17,8 @@ import amat.germinal.GerminalCenterState;
  */
 public final class GCFateReport extends AmatReport {
     private final GerminalCenterState[] stateValues = GerminalCenterState.values();
-    private double[] stateFraction;
+    private double[] stateFraction = null;
+    private StatSummary gcCycleSummary = null;
 
     private GCFateReport() {}
 
@@ -110,5 +112,16 @@ public final class GCFateReport extends AmatReport {
 
         for (int index = 0; index < stateFraction.length; index++)
             stateFraction[index] = DoubleUtil.ratio(stateCount[index], driver.countGerminalCenters());
+    }
+
+    public StatSummary getGcCycleSummary() {
+        if (gcCycleSummary == null)
+            computeGcCycleSummary();
+
+        return gcCycleSummary;
+    }
+
+    private void computeGcCycleSummary() {
+        gcCycleSummary = StatSummary.compute(driver.viewGerminalCenters(), gc -> Double.valueOf(gc.countCycles()));
     }
 }

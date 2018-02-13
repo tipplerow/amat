@@ -65,6 +65,10 @@ public final class HeadlineRecord {
     private final double fractionSizeLimit;
     private final double fractionTimeLimit;
 
+    private final double gcCycleMean;
+    private final double gcCycleSD;
+    private final double gcCycleErr;
+
     private static HeadlineRecord instance = null;
 
     private HeadlineRecord(double meanTotalAgEncounter,
@@ -105,7 +109,10 @@ public final class HeadlineRecord {
                            double fractionAgConsumed,
                            double fractionExtinguished,
                            double fractionSizeLimit,
-                           double fractionTimeLimit) {
+                           double fractionTimeLimit,
+                           double gcCycleMean,
+                           double gcCycleSD,
+                           double gcCycleErr) {
         this.meanTotalAgEncounter  = meanTotalAgEncounter;
         this.meanUniqueAgEncounter = meanUniqueAgEncounter;
         this.meanUniqueAgRevisited = meanUniqueAgRevisited;
@@ -155,6 +162,10 @@ public final class HeadlineRecord {
         this.fractionExtinguished = fractionExtinguished;
         this.fractionSizeLimit    = fractionSizeLimit;
         this.fractionTimeLimit    = fractionTimeLimit;
+
+        this.gcCycleMean = gcCycleMean;
+        this.gcCycleSD   = gcCycleSD;
+        this.gcCycleErr  = gcCycleErr;
     }
 
     /**
@@ -232,6 +243,10 @@ public final class HeadlineRecord {
         double fractionSizeLimit    = fate.getStateFraction(GerminalCenterState.EXCEEDED_CAPACITY);
         double fractionTimeLimit    = fate.getStateFraction(GerminalCenterState.EXCEEDED_TIME);
 
+        double gcCycleMean = fate.getGcCycleSummary().getMean();
+        double gcCycleSD   = fate.getGcCycleSummary().getSD();
+        double gcCycleErr  = fate.getGcCycleSummary().getError();
+
 	return new HeadlineRecord(meanTotalAgEncounter,
                                   meanUniqueAgEncounter,
                                   meanUniqueAgRevisited,
@@ -270,7 +285,10 @@ public final class HeadlineRecord {
                                   fractionAgConsumed,
                                   fractionExtinguished,
                                   fractionSizeLimit,
-                                  fractionTimeLimit);
+                                  fractionTimeLimit,
+                                  gcCycleMean,
+                                  gcCycleSD,
+                                  gcCycleErr);
     }
 
     /**
@@ -487,22 +505,25 @@ public final class HeadlineRecord {
                              + ",%d"    // aboveThresholdNumber
                              + ",%.6f"  // aboveThresholdFraction
                              + ",%.8f"  // aboveThresholdRate
-                             + ",%.8f"  // footprintAffinityMean;
-                             + ",%.8f"  // footprintAffinitySD;
-                             + ",%.8f"  // footprintAffinityErr;
-                             + ",%.8f"  // footprintBreadthMean;
-                             + ",%.8f"  // footprintBreadthSD;
-                             + ",%.8f"  // footprintBreadthErr;
-                             + ",%.8f"  // neutPanelAffinityMean;
-                             + ",%.8f"  // neutPanelAffinitySD;
-                             + ",%.8f"  // neutPanelAffinityErr;
-                             + ",%.8f"  // neutPanelBreadthMean;
-                             + ",%.8f"  // neutPanelBreadthSD;
-                             + ",%.8f"  // neutPanelBreadthErr;
+                             + ",%.8f"  // footprintAffinityMean
+                             + ",%.8f"  // footprintAffinitySD
+                             + ",%.8f"  // footprintAffinityErr
+                             + ",%.8f"  // footprintBreadthMean
+                             + ",%.8f"  // footprintBreadthSD
+                             + ",%.8f"  // footprintBreadthErr
+                             + ",%.8f"  // neutPanelAffinityMean
+                             + ",%.8f"  // neutPanelAffinitySD
+                             + ",%.8f"  // neutPanelAffinityErr
+                             + ",%.8f"  // neutPanelBreadthMean
+                             + ",%.8f"  // neutPanelBreadthSD
+                             + ",%.8f"  // neutPanelBreadthErr
                              + ",%.4f"  // fractionAgConsumed
                              + ",%.4f"  // fractionExtinguished
                              + ",%.4f"  // fractionSizeLimit
-                             + ",%.4f", // fractionTimeLimit
+                             + ",%.4f"  // fractionTimeLimit
+                             + ",%.8f"  // gcCycleMean
+                             + ",%.8f"  // gcCycleSD
+                             + ",%.8f", // gcCycleErr
                              meanTotalAgEncounter,
                              meanUniqueAgEncounter,
                              meanUniqueAgRevisited,
@@ -541,7 +562,10 @@ public final class HeadlineRecord {
                              fractionAgConsumed,
                              fractionExtinguished,
                              fractionSizeLimit,
-                             fractionTimeLimit);
+                             fractionTimeLimit,
+                             gcCycleMean,
+                             gcCycleSD,
+                             gcCycleErr);
     }
 
     /**
@@ -590,6 +614,9 @@ public final class HeadlineRecord {
             + ",fractionAgConsumed"
             + ",fractionExtinguished"
             + ",fractionSizeLimit"
-            + ",fractionTimeLimit";
+            + ",fractionTimeLimit"
+            + ",gcCycleMean"
+            + ",gcCycleSD"
+            + ",gcCycleErr";
     }
 }
