@@ -66,6 +66,9 @@ public final class HeadlineRecord {
     private final double fractionTimeLimit;
 
     private final double gcCycleMean;
+    private final double gcCycleMedian;
+    private final double gcCycleQ1;
+    private final double gcCycleQ3;
     private final double gcCycleSD;
     private final double gcCycleErr;
 
@@ -111,6 +114,9 @@ public final class HeadlineRecord {
                            double fractionSizeLimit,
                            double fractionTimeLimit,
                            double gcCycleMean,
+                           double gcCycleMedian,
+                           double gcCycleQ1,
+                           double gcCycleQ3,
                            double gcCycleSD,
                            double gcCycleErr) {
         this.meanTotalAgEncounter  = meanTotalAgEncounter;
@@ -163,9 +169,12 @@ public final class HeadlineRecord {
         this.fractionSizeLimit    = fractionSizeLimit;
         this.fractionTimeLimit    = fractionTimeLimit;
 
-        this.gcCycleMean = gcCycleMean;
-        this.gcCycleSD   = gcCycleSD;
-        this.gcCycleErr  = gcCycleErr;
+        this.gcCycleMean   = gcCycleMean;
+        this.gcCycleMedian = gcCycleMedian;
+        this.gcCycleQ1     = gcCycleQ1;
+        this.gcCycleQ3     = gcCycleQ3;
+        this.gcCycleSD     = gcCycleSD;
+        this.gcCycleErr    = gcCycleErr;
     }
 
     /**
@@ -243,9 +252,12 @@ public final class HeadlineRecord {
         double fractionSizeLimit    = fate.getStateFraction(GerminalCenterState.EXCEEDED_CAPACITY);
         double fractionTimeLimit    = fate.getStateFraction(GerminalCenterState.EXCEEDED_TIME);
 
-        double gcCycleMean = fate.getGcCycleSummary().getMean();
-        double gcCycleSD   = fate.getGcCycleSummary().getSD();
-        double gcCycleErr  = fate.getGcCycleSummary().getError();
+        double gcCycleMean   = fate.getGcCycleSummary().getMean();
+        double gcCycleMedian = fate.getGcCycleSummary().getMean();
+        double gcCycleQ1     = fate.getGcCycleSummary().getQuartile1();
+        double gcCycleQ3     = fate.getGcCycleSummary().getQuartile3();
+        double gcCycleSD     = fate.getGcCycleSummary().getSD();
+        double gcCycleErr    = fate.getGcCycleSummary().getError();
 
 	return new HeadlineRecord(meanTotalAgEncounter,
                                   meanUniqueAgEncounter,
@@ -287,6 +299,9 @@ public final class HeadlineRecord {
                                   fractionSizeLimit,
                                   fractionTimeLimit,
                                   gcCycleMean,
+                                  gcCycleMedian,
+                                  gcCycleQ1,
+                                  gcCycleQ3,
                                   gcCycleSD,
                                   gcCycleErr);
     }
@@ -522,6 +537,9 @@ public final class HeadlineRecord {
                              + ",%.4f"  // fractionSizeLimit
                              + ",%.4f"  // fractionTimeLimit
                              + ",%.8f"  // gcCycleMean
+                             + ",%.8f"  // gcCycleMedian
+                             + ",%.8f"  // gcCycleQ1
+                             + ",%.8f"  // gcCycleQ3
                              + ",%.8f"  // gcCycleSD
                              + ",%.8f", // gcCycleErr
                              meanTotalAgEncounter,
@@ -564,6 +582,9 @@ public final class HeadlineRecord {
                              fractionSizeLimit,
                              fractionTimeLimit,
                              gcCycleMean,
+                             gcCycleMedian,
+                             gcCycleQ1,
+                             gcCycleQ3,
                              gcCycleSD,
                              gcCycleErr);
     }
@@ -616,6 +637,9 @@ public final class HeadlineRecord {
             + ",fractionSizeLimit"
             + ",fractionTimeLimit"
             + ",gcCycleMean"
+            + ",gcCycleMedian"
+            + ",gcCycleQ1"
+            + ",gcCycleQ3"
             + ",gcCycleSD"
             + ",gcCycleErr";
     }
