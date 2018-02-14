@@ -253,7 +253,7 @@ public final class HeadlineRecord {
         double fractionTimeLimit    = fate.getStateFraction(GerminalCenterState.EXCEEDED_TIME);
 
         double gcCycleMean   = fate.getGcCycleSummary().getMean();
-        double gcCycleMedian = fate.getGcCycleSummary().getMean();
+        double gcCycleMedian = fate.getGcCycleSummary().getMedian();
         double gcCycleQ1     = fate.getGcCycleSummary().getQuartile1();
         double gcCycleQ3     = fate.getGcCycleSummary().getQuartile3();
         double gcCycleSD     = fate.getGcCycleSummary().getSD();
