@@ -31,7 +31,7 @@ public final class ShapeStructure extends NumericStructure {
     private ShapeStructure(long[] latticeCoord) {
         this.hashCode     = Arrays.hashCode(latticeCoord);
         this.latticeCoord = latticeCoord;
-        this.doubleCoord  = new JamVector(DISCRETIZATION.asContinuous(latticeCoord));
+        this.doubleCoord  = JamVector.copyOf(DISCRETIZATION.asContinuous(latticeCoord));
     }
 
     /**
